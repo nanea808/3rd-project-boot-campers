@@ -1,17 +1,17 @@
-import './styles/App.css';
+import "./styles/App.css";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   // createHttpLink,
-} from '@apollo/client';
+} from "@apollo/client";
 // import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // import pages
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  uri: "/graphql",
   cache: new InMemoryCache(),
 });
 
@@ -28,15 +28,13 @@ const client = new ApolloClient({
 //   };
 // });
 
-
-
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Route path="/" element={<Home />}>
-          
-        </Route>
+        <Routes>
+          {/* <Route path="/" element={<Home />}></Route> */}
+        </Routes>
       </Router>
     </ApolloProvider>
   );
