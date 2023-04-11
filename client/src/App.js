@@ -8,7 +8,7 @@ import {
 // import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// import pages
+import Header from "./components/Header";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -32,6 +32,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Header />
         <Routes>
           {/* <Route path="/" element={<Home />}></Route> */}
         </Routes>
