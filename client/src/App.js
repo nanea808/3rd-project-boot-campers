@@ -9,6 +9,7 @@ import {
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -32,6 +33,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Navbar />
         <Header />
         <Routes>
           {/* <Route path="/" element={<Home />}></Route> */}
