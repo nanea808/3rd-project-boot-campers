@@ -1,3 +1,10 @@
+/********  ********/
+:root {
+  --deep-sea-blue: #004451;
+  --dandelion-yellow: #FFFF45;
+  --off-white: #e9e9e9;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +17,73 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/******** NAVBAR ********/
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--deep-sea-blue);
+  color: var(--dandelion-yellow);
+  min-height: 55px;
+}
+
+.nav-list {
+  display: none;
+  align-items: center;
+}
+
+.nav-burger-open {
+  display: block;
+  align-items: end;
+}
+
+.nav-burger-closed {
+  display: none;
+  align-items: end;
+}
+
+.nav-button {
+  font-size: 200%;
+  padding: 0.5rem;
+  background-color: var(--deep-sea-blue);
+  color: var(--dandelion-yellow);
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.nav-button:hover {
+  /* color: var(--off-white); */
+  border: 1px solid var(--off-white);
+  box-shadow: 3px 3px 1px 0 #e9e9e9;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-item a {
+  color: var(--dandelion-yellow);
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+}
+
+.nav-item a:hover {
+  color: var(--off-white);
+}
+
+/******** MEDIA QUERIES ********/
+@media (min-width: 1024px) {
+  .nav-list {
+    display: flex;
+  }
+  .hamburger-react {
+    display: none;
+  }
+  .nav-burger-open {
+    display: none;
+  }
 }
