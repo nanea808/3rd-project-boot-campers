@@ -34,6 +34,16 @@ code {
   align-items: center;
 }
 
+.nav-burger-open {
+  display: block;
+  align-items: end;
+}
+
+.nav-burger-closed {
+  display: none;
+  align-items: end;
+}
+
 .nav-button {
   font-size: 200%;
   padding: 0.5rem;
@@ -69,5 +79,11 @@ code {
 @media (min-width: 1024px) {
   .nav-list {
     display: flex;
+  }
+  .hamburger-react {
+    display: none;
+  }
+  .nav-burger-open {
+    display: none;
   }
 }
