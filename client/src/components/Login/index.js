@@ -1,5 +1,7 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { ReactDOM } from 'react-dom';
+// import { Formik, Form, Field, ErrorMessage } from 'formik'; //Field, ErrorMessage being rejected by react :/
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 //yup validation schema
@@ -12,88 +14,72 @@ const schema = Yup.object().shape({
         .min(8, 'Password must be at least 8 characters'),
 });
 
-const Login = () => {
+//TODO: 
+// onSubmit, implement desired result (redirect to user profile with additional features available)
+// add reset button
+// add styling
+// add security measures to protect/obscure password?
+const LoginForm = () => {
     return (
         <>
-            <div>
-                <h1>Login</h1>
-                <Formik
-                    initialValues={{ email: '', password: '' }}
-                    validationSchema={schema}
-            //         onSubmit={(values, { setSubmitting }) => {
-            //             setTimeout(() => {
-            //                 alert(JSON.stringify(values, null, 2));
-            //                 setSubmitting(false);
-            //             }, 400)
-            //         }}
-                    onSubmit={(values) => {
-                        alert(JSON.stringify(values));
-                    }}
-            >
-                {/* {({ isSubmitting }) => { */}
-
-                {({ 
-                    values,
-                    errors,
-                    touched,
-                    handleChange,
-                    handleBlur,
-                    handleSubmit,
-                }) => {
-                    <div className='login'>
-                        <Form noValidate onSubmit={handleSubmit}>
-                            <div>
-                                <h1>Login</h1>
-                            </div>
-                            <div>
-                                <input
-                                    type='email'
-                                    name='email'
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.email}
-                                    placeholder='Enter email'
-                                    id='email'
-                                    // className='' //add formatting class here
-                                />
-
-                                <p className='error'>
-                                    {errors.email && touched.email && errors.email}
-                                </p>
-
-                                <input
-                                    type='password'
-                                    name='password'
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.password}
-                                    placeholder='Enter password'
-                                    // className='' //add formatting here
-                                />
-
-                                <p className='error'>
-                                    {errors.password && touched.password && errors.password}
-                                </p>
-
-                            </div>
-                            {/* <Field type="email" name="email" />
-                            <ErrorMessage name="email" component="div" />
-                            <Field type="password" name="password" />
-                            <ErrorMessage name="password" component="div" /> */}
-
-                            <button type="submit" disabled={isSubmitting}>
-                                Log In
-                            </button>
-
-                        </Form>
-
-                    </div>
+          {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
+            <Formik
+                validationSchema={schema}
+                initialValues={{ email: "", password: "" }}
+                onSubmit={(values) => {
+                    // comment this out and replace with desired functionality (e.g., redirect to user profile page logged-in view)
+                //   alert(JSON.stringify(values));
+                console.log("User email and password passed validation. Values: " + JSON.stringify(values));
                 }}
-                </Formik>
-            </div>
-        </>
-    );
+            >
+                {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                }) => (
+                <div className="login">
+                    <div className="form">
+                    <form noValidate onSubmit={handleSubmit}>
+                        <h1>Login</h1>
+                        <input
+                        type="email"
+                        name="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                        placeholder="you@email.com"
+                        //   className="form-control inp_text"
+                        id="email"
+                        />
+                        {/* show error if validation failed */}
+                        <p className="error">
+                        {errors.email && touched.email && errors.email}
+                        </p>
+                        <input
+                        type="password"
+                        name="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
+                        placeholder="Enter password"
+                        //   className="form-control"
+                        />
+                        {/* show error if validation failed */}
+                        <p className="error">
+                        {errors.password && touched.password && errors.password}
+                        </p>
+                        <button type="submit">Login</button>
+                    </form>
+                    </div>
+                </div>
+                )}
+            </Formik>
+            </>
+        );    
 }
 
-export default Login;
+export default LoginForm;
 
