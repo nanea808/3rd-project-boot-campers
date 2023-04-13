@@ -42,6 +42,9 @@ const SignupForm = () => {
                     }, 400);
                 }}
             >
+                <div>
+                    <h1>Sign Up</h1>
+                </div>
                 <Form>
                     <textInput
                         label="First Name"

@@ -20,5 +20,8 @@ afterEach(() => {
 });
 
 test('renders signup form', () => {
+    // render(<App />);
     render(<SignupForm />);
+    const formEl = screen.getByText(/Sign Up/i);
+    expect(formEl).toBeInTheDocument();
 });
