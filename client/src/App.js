@@ -9,6 +9,7 @@ import {
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import TaskFeed from "./components/TaskFeed";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 
