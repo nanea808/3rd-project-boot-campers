@@ -4,14 +4,14 @@ import * as Yup from 'yup';
 
 //use formik's <Field> render-prop fxnality
 const textInput = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
+    // const [field, meta] = useField(props);
     return (
         <>
-            <label htmlFor={props.id || props.name}>{label}</label>
+            {/* <label htmlFor={props.id || props.name}>{label}</label>
             <input className="text-input" {...field} {...props} />
             {meta.touched && meta.error ? (
                 <div classNAme="error">{meta.error}</div>
-            ) : null }
+            ) : null } */}
         </>
     );
 };
