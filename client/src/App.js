@@ -15,6 +15,8 @@ import TaskFeed from "./components/TaskFeed";
 
 //pages
 import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+
 
 //apollo
 const client = new ApolloClient({
@@ -40,10 +42,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navbar />
-        <Header />
-        < TaskFeed />
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
         </Routes>
       </Router>
     </ApolloProvider>
