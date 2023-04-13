@@ -1,4 +1,5 @@
 import React from "react";
+import DropDownNav from "./DropDownNav"
 
 function Navbar() {
   // const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false);
@@ -13,13 +14,12 @@ function Navbar() {
 
   return (
     <nav className="nav">
-      <button className="nav-button">My Website</button>
+      <button className="nav-button">Tasker App</button>
+      <DropDownNav links={links}/>
       <ul className="nav-list">
         {links.map((link) => (
           <li className="nav-item" key={link.href}>
-            <a href={link.href}>
-              {link.label}
-            </a>
+            <a href={link.href}>{link.label}</a>
           </li>
         ))}
       </ul>
