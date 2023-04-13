@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import TaskFeed from "./components/TaskFeed";
 import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+
 const client = new ApolloClient({
   uri: "/graphql",
   cache: new InMemoryCache(),
@@ -36,6 +38,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
         </Routes>
       </Router>
     </ApolloProvider>
