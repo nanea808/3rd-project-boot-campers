@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Login from '../components/Login';
-// import Signup from '../components/Signup';
+import LoginForm from '../components/Login';
+// import SignupForm from '../components/Signup';
 
 function LoginPage() {
     const [isLoggingIn, setLoggingIn] = useState(true);
@@ -8,7 +8,7 @@ function LoginPage() {
     return (
         <div>
             <p>this text</p>
-            {isLoggingIn ? <Login /> : <h1>signup</h1>}
+            {isLoggingIn ? <LoginForm /> : <h1>signup</h1>}
         </div>
     );
 }
