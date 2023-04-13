@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-// import TaskFeed from "../components/TaskFeed";
+import TaskFeed from "../components/TaskFeed";
 import SavedTasks from "../components/SavedTasks";
 import Footer from "../components/Footer";
 
@@ -16,7 +16,7 @@ function Home() {
       <Header />
 
       {/* Task Feed */}
-      {/* <TaskFeed/> */}
+      <TaskFeed/>
 
       {/* Saved Tasks */}
       <SavedTasks/>
