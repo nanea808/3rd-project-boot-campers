@@ -3,6 +3,6 @@ import Navbar from '../components/Navbar';
 
 test('renders navbar links', () => {
   render(<Navbar />);
-  const linkElement = screen.getByText(/Contact/i);
-  expect(linkElement).toBeInTheDocument();
+  const linkElement = screen.getAllByText(/Contact/i);
+  linkElement.map((element) => expect(element).toBeInTheDocument());
 });
