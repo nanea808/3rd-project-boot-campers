@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from 'react';
+import { screen } from '@testing-library/react';
+import App from './App.test';
 import SignupForm from '../components/Signup';
-import { unmountComponentAtNode } from 'react-dom';
+import { render, unmountComponentAtNode } from 'react-dom';
 
 //make empty container div for signup form
 let container = null;
