@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
 
+//use formik's <Field> render-prop fxnality
 const textInput = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
@@ -15,7 +16,7 @@ const textInput = ({ label, ...props }) => {
     );
 };
 
-//signup form with validation by yup
+//signup form using reusable textInput component with validation by yup
 const SignupForm = () => {
         return (
             <Formik
@@ -64,6 +65,7 @@ const SignupForm = () => {
                     />
 
                     <button type="submit"> Sign Up </button>
+
                 </Form>
             </Formik>
         );
