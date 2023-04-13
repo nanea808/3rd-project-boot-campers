@@ -9,8 +9,8 @@ import {
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import TaskFeed from "./components/TaskFeed";
 import Home from "./pages/Home";
-
 const client = new ApolloClient({
   uri: "/graphql",
   cache: new InMemoryCache(),
@@ -34,6 +34,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navbar />
+        <Header />
+        < TaskFeed />
+
         <Routes>
           <Route path="/" element={<Home />}></Route>
         </Routes>
