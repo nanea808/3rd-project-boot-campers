@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskFeed from './TaskFeed';
+import TaskCard from '../TaskCard';
 
 function TaskFeed() {
   const tasks = [
@@ -22,10 +22,13 @@ function TaskFeed() {
 
   return (
     <div>
-      <h1>My App</h1>
-      <TaskFeed tasks={tasks} />
+       <h1>Available Tasks</h1>
+       {tasks.map(task => (
+        <TaskCard key={task.id} task={task} />
+      ))}
     </div>
   );
 }
 
 export default TaskFeed;
+
