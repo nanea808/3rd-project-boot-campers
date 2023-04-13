@@ -1,15 +1,15 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
-import App from './App.test';
+import { screen, render } from '@testing-library/react';
+// import App from './App.test';
 import SignupForm from '../components/Signup';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { unmountComponentAtNode } from 'react-dom';
 
 //make empty container div for signup form
 let container = null;
 
 //attach container
 beforeEach(() => {
-    container = document.createElement("div");
+    container = document.createElement('div');
     document.body.appendChild(container);
 });
 
@@ -22,7 +22,8 @@ afterEach(() => {
 
 test('renders signup form', () => {
     // render(<App />);
-    render(<SignupForm />);
-    const formEl = screen.getByText(/Sign Up/i);
-    expect(formEl).toBeInTheDocument();
+    render(<SignupForm />, container);
+    // const formEl = screen.getByText(/Sign Up/i);
+    // expect(formEl).toBeInTheDocument();
+    expect(container.textContent).toBe('Sign Up');
 });

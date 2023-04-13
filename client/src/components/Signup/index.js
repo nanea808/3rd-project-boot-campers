@@ -45,31 +45,34 @@ const SignupForm = () => {
                 <div>
                     <h1>Sign Up</h1>
                 </div>
-                <Form>
-                    <textInput
-                        label="First Name"
-                        name="firstName"
-                        type="text"
-                        placeholder="Tasko"
-                    />
 
-                    <textInput
-                        label="Last Name"
-                        name="lastName"
-                        type="text"
-                        placeholder="Saurus"
-                    />
+                <div> 
+                    <Form>
+                        <textInput
+                            label="First Name"
+                            name="firstName"
+                            type="text"
+                            placeholder="Tasko"
+                        />
 
-                    <textInput  
-                        label="Email Address"
-                        name="email"
-                        type="text"
-                        placeholder="taskosaurus@email.com"
-                    />
+                        <textInput
+                            label="Last Name"
+                            name="lastName"
+                            type="text"
+                            placeholder="Saurus"
+                        />
 
-                    <button type="submit"> Sign Up </button>
+                        <textInput  
+                            label="Email Address"
+                            name="email"
+                            type="text"
+                            placeholder="taskosaurus@email.com"
+                        />
 
-                </Form>
+                        <button type="submit"> Sign Up </button>
+
+                    </Form>
+                </div>
             </Formik>
         );
     };
