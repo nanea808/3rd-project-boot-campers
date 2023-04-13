@@ -70,3 +70,5 @@ const SignupForm = () => {
             </Formik>
         );
     };
+
+    export default SignupForm;
