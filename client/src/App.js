@@ -8,11 +8,17 @@ import {
 // import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+//components
+import Header from "./components/Header"
 import Navbar from "./components/Navbar";
 import TaskFeed from "./components/TaskFeed";
+
+//pages
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 
+
+//apollo
 const client = new ApolloClient({
   uri: "/graphql",
   cache: new InMemoryCache(),
