@@ -26,7 +26,7 @@ code {
   padding: 1rem;
   background-color: var(--deep-sea-blue);
   color: var(--dandelion-yellow);
-  height: 55px;
+  min-height: 55px;
 }
 
 .nav-list {
@@ -59,7 +59,6 @@ code {
   color: var(--dandelion-yellow);
   text-decoration: none;
   padding: 1rem 0.5rem;
-
 }
 
 .nav-item a:hover {

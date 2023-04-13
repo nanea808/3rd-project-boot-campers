@@ -1,4 +1,5 @@
 import React from "react";
+import Hamburger from "./Hamburger"
 
 function Navbar() {
   // const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false);
@@ -13,7 +14,7 @@ function Navbar() {
 
   return (
     <nav className="nav">
-      <button className="nav-button">My Website</button>
+      <button className="nav-button">Tasker App</button>
       <ul className="nav-list">
         {links.map((link) => (
           <li className="nav-item" key={link.href}>
@@ -23,6 +24,7 @@ function Navbar() {
           </li>
         ))}
       </ul>
+      <Hamburger />
     </nav>
   );
 
