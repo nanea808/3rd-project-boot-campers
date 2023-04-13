@@ -8,8 +8,8 @@ import {
 // import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -34,9 +34,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navbar />
-        <Header />
         <Routes>
-          {/* <Route path="/" element={<Home />}></Route> */}
+          <Route path="/" element={<Home />}></Route>
         </Routes>
       </Router>
     </ApolloProvider>

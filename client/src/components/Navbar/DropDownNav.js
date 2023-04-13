@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import Hamburger from "hamburger-react";
 
 function DropDownNav({links}) {
