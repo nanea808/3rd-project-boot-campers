@@ -1,35 +1,22 @@
 const { Schema, model } = require("mongoose");
 
 const taskSchema = new Schema({
-  username: {
+  taskName: {
     type: String,
-    required: true,
+    required: 'Your task needs a title!',
     unique: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/.+@.+\..+/, "Must use a valid email address"],
-  },
-  password: {
-    type: String,
-    required: true,
   },
   description: {
-    type: String
+    type: String,
+    required: 'Your task needs a description!',
   },
-  skills: {
-    type: [String]
-  },
-
+  currentFunding: {
+    type: Number,
+    default: 0.00,
+    min: 0.00
+  }
 });
 
-// tasks have the following values:
-// id
-// name
-// description
-// current funding
 // owning user
 // assigned user
 
