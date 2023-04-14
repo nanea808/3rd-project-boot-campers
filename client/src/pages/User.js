@@ -1,4 +1,6 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 
@@ -8,8 +10,8 @@ function User () {
             <Navbar />
             <Header />
             <div> 
-                <button type="" class="">Modify Details</button>
-                <button type="" class="">Delete Account</button>
+                <button type="" className="">Modify Details</button>
+                <button type="" className="">Delete Account</button>
             </div>
             <div>
                 <img src="" placeholder="user-avatar"></img>
@@ -23,10 +25,10 @@ function User () {
                 <p>insert bio here</p>
             </div>
             <div id="skills-container">
-                <p class="skill-floater"></p>
-                <p class="skill-floater"></p>
-                <p class="skill-floater"></p>
-                <p class="skill-floater"></p>
+                <p className="skill-floater"></p>
+                <p className="skill-floater"></p>
+                <p className="skill-floater"></p>
+                <p className="skill-floater"></p>
             </div>
             <Footer />
         </main>

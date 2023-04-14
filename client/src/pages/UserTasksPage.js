@@ -9,9 +9,9 @@ function UserTasksPage () {
             <Navbar />
             <Header />
             <div> 
-                <button type="button" class="">Create a Task</button>
-                <button type="button" class="">Request a Task</button>
-                <button type="button" class="">Search for Tasks</button>
+                <button type="button" className="">Create a Task</button>
+                <button type="button" className="">Request a Task</button>
+                <button type="button" className="">Search for Tasks</button>
             </div>
             <div id="container">
                 <div id="saved-tasks">
