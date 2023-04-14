@@ -1,20 +1,14 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
 
 function User () {
     return (
         <main>
-            <Navbar />
-            <Header />
             <div> 
                 <button type="" className="">Modify Details</button>
                 <button type="" className="">Delete Account</button>
             </div>
             <div>
-                <img src="" placeholder="user-avatar"></img>
+                <img src="" alt="avatar" placeholder="user-avatar"></img>
             </div>
             <div>
                 <p>Username</p>
@@ -30,7 +24,6 @@ function User () {
                 <p className="skill-floater"></p>
                 <p className="skill-floater"></p>
             </div>
-            <Footer />
         </main>
     );
 }

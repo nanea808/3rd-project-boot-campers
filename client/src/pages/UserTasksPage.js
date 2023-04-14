@@ -1,13 +1,8 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 function UserTasksPage () {
     return (
         <main>
-            <Navbar />
-            <Header />
             <div> 
                 <button type="button" className="">Create a Task</button>
                 <button type="button" className="">Request a Task</button>
@@ -24,7 +19,6 @@ function UserTasksPage () {
                     {/* insert scrollable list component */}
                 </div>
             </div>
-            <Footer />
         </main>
     );
 }
