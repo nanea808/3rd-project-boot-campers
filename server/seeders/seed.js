@@ -1,22 +1,20 @@
-const db = require('../config/connection');
+const db = require("../config/connection");
 
-const {User, /*Task */} = require('../models');
+const { User } = require("../models");
+
+userSeeds = require('./userSeeds.json');
+
+db.once('open', async () => {
+    try{
+        await User.deleteMany({});
+        await User.create(userSeeds);
 
 
-
-
-// users have the following values:
-// picture
-// username
-// email
-// password
-// description
-// skills list (array)
-
-// tasks have the following values:
-// id
-// name
-// description
-// current funding
-// owning user
-// assigned user
+    } catch (err) {
+        console.error(err);
+        process.exit(1);
+      }
+    
+      console.log('all done!');
+      process.exit(0);
+});

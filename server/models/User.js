@@ -2,7 +2,8 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
-  // to add: profile picture through GridFS
+  // to add: profile picture through GridFS.
+  // to add: funding users for tasks to allow for refunds. Includes properties for user ID and amount donated.
   firstName: {
     type: String,
     required: "We require at least a mononym.",
@@ -33,8 +34,6 @@ const userSchema = new Schema({
     default: [],
   },
 
-  // for a refund function, tasks need to track users who have donated and how much they have donated.
-  // that way, if a task is completed poorly or expires after a certain length of time, the donating users can be re-issued their funds.
   tasks: [
     {
       taskName: {
@@ -58,13 +57,6 @@ const userSchema = new Schema({
       },
     },
   ],
-  // assignedTasks: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Task',
-  //     default: null
-  //   }
-  // ]
 });
 
 // hash passwords
