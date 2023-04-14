@@ -1,15 +1,29 @@
 import { gql } from '@apollo/client';
 
+//user login
+export const LOGIN_USER = gql`
+    mutation login($email: String!, $password: String!) {
+        login(email: $email, password: $password) {
+            token
+            profile {
+                _id
+                name
+                username
+                skills
+                tasks
+            }
+        }
+    }
+`;
+
 //user signup mutation
 export const ADD_USER = gql`
-    mutation addUser($username: String!) {
-        addUser(username: $username) {
-            _id
-            username
+    mutation addUser($name: String!, $username: String!, $email: String!, $password: String!) {
+        addUser(username: name: $name, $username, email: $email, password: $password) {
             name
+            username
             email
             password
-            skills
         }
     }
 `;
@@ -29,7 +43,6 @@ export const ADD_SKILL = gql`
 export const DELETE_USER = gql`
     mutation deleteUser($username: String!) {
         deleteUser(username: $username) {
-            _id
             username
             name
             email
@@ -51,7 +64,25 @@ export const DELETE_SKILL = gql`
 `;
 
 //user create task
+// export const ADD_TASK = gql`
+//     mutation addTask($)
+// `;
 
 //user create request
 
 //user follow task (a followed/supported task is viewable on user profile page)
+
+//user delete task
+
+//user delete request
+
+//user unfollow task
+
+//user update profile
+// export const UPDATE_USER = gql`
+//     mutation updateUser($userId: ID!) {
+//         updateUser(userId: $userId) {
+
+//         }
+//     }
+// `;
