@@ -18,11 +18,7 @@ function LoginPage() {
         }
     }
 
-    return (
-        <div>
-            {switchForms()}
-        </div>
-    );
+    return switchForms();
 }
 
 export default LoginPage;
