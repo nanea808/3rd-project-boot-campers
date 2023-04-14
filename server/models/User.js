@@ -23,7 +23,19 @@ const userSchema = new Schema({
   skills: {
     type: [String],
     default: []
-  }
+  },
+  ownedTasks: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'Task'
+    }
+  ],
+  assignedTasks: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Task'
+    }
+  ]
 });
 
 // hash passwords

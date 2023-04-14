@@ -1,3 +1,10 @@
+const db = require('../config/connection');
+
+const {User, Task} = require('../models');
+
+
+
+
 // users have the following values:
 // picture
 // username
