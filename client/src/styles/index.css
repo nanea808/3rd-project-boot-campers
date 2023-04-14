@@ -1,3 +1,7 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;400;700&family=Red+Hat+Display:wght@300&display=swap');
+
+
 /********  ********/
 :root {
   --deep-sea-blue: #004451;
@@ -7,7 +11,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Anupham', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,6 +36,7 @@ code {
 .nav-list {
   display: none;
   align-items: center;
+  
 }
 
 .nav-burger-open {
@@ -53,6 +58,8 @@ code {
   border: 0;
   cursor: pointer;
   transition: box-shadow 200ms ease-in-out;
+  font-size: 3rem;
+  font-weight: 900;
 }
 
 .nav-button:hover {
@@ -69,6 +76,8 @@ code {
   color: var(--dandelion-yellow);
   text-decoration: none;
   padding: 1rem 0.5rem;
+  font-size: 2rem ;
+  font-weight: 700;
 }
 
 .nav-item a:hover {
@@ -86,4 +95,95 @@ code {
   .nav-burger-open {
     display: none;
   }
+}
+
+
+/******** FOOTER ********/
+.footer {
+  background-color: var(--deep-sea-blue);
+  color: var(--off-white);
+  padding: 2rem;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  white-space: normal;
+  font-family: 'Anuphan';
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.footer__list-item a {
+  color: var(--dandelion-yellow);
+  text-decoration: none;
+  font-family: 'Anuphan';
+  font-weight:'500';
+  font-size: 2rem;
+}
+
+.footer__list-item a:hover {
+  text-decoration: underline;
+}
+
+/******** HEADER ********/
+header {
+  background-color: var(--off-white);
+  color: var(--deep-sea-blue);
+  padding: 2rem;
+}
+
+header a {
+  color: var(--deep-sea-blue);
+  text-decoration: none;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 2rem 0 0;
+}
+
+/******* TASK LIST *******/
+.task-feed-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--deep-sea-blue);
+  justify-content: space-between;
+  padding: 1rem;
+  
+}
+
+.task-feed-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: var(--dandelion-yellow);
+}
+
+.task-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax( 300px, 1fr));
+  grid-gap: 20px;
+  background-color: var(--off-white);
+  padding: 1rem;
 }
