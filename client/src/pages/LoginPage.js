@@ -9,7 +9,7 @@ function LoginPage() {
     return (
         <main>
         <div>
-            <p>this text</p>
+            <p></p>
             {isLoggingIn ? <LoginForm /> : <h1>signup</h1>}
         </div>
         <Footer />
