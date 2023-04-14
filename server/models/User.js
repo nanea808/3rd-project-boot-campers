@@ -2,6 +2,14 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
+  // to add: profile picture through GridFS
+  firstName: {
+    type: String,
+    required: "We require at least a mononym.",
+  },
+  lastName: {
+    type: String
+  },
   username: {
     type: String,
     required: true,
@@ -18,35 +26,38 @@ const userSchema = new Schema({
     required: true,
   },
   description: {
-    type: String
+    type: String,
   },
   skills: {
     type: [String],
-    default: []
+    default: [],
   },
+
+  // for a refund function, tasks need to track users who have donated and how much they have donated.
+  // that way, if a task is completed poorly or expires after a certain length of time, the donating users can be re-issued their funds.
   tasks: [
     {
       taskName: {
         type: String,
-        required: 'Your task needs a title!',
+        required: "Your task needs a title!",
         unique: true,
       },
       description: {
         type: String,
-        required: 'Your task needs a description!',
+        required: "Your task needs a description!",
       },
       currentFunding: {
         type: Number,
-        default: 0.00,
-        min: 0.00
+        default: 0.0,
+        min: 0.0,
       },
       assignedUser: {
         type: Schema.Types.ObjectId,
-        ref: 'User',
-        default: null
-      }
-    }
-  ]
+        ref: "User",
+        default: null,
+      },
+    },
+  ],
   // assignedTasks: [
   //   {
   //     type: Schema.Types.ObjectId,
@@ -71,6 +82,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const User = model('User', userSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
