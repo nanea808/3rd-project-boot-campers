@@ -10,7 +10,7 @@ const schema = Yup.object().shape({
         .min(5, 'Task title must be at least 5 characters')
         .max(100, 'Task title can be no more than 100 characters'),
     description: Yup.string()
-        .required('Please give a description of the task. What would you like to be done? What work will be involved?')
+        .required('Please give a description of the task.')
         .min(15, 'Description must be at least 15 characters')
         .max(300, 'Description can be no more than 200 characters'),
     location: Yup.string()
@@ -56,7 +56,7 @@ const addTaskForm = () => {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.title}
-                                        placeholder='name your task'
+                                        placeholder='Name your task.'
                                         className='input'
                                         id='title'
                                     />
@@ -74,7 +74,7 @@ const addTaskForm = () => {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.description}
-                                        placeholder='describe your task'
+                                        placeholder='Describe your task. What would you like to be done? What work will be involved?'
                                         className='input'
                                         id='description'
                                     />
@@ -92,7 +92,7 @@ const addTaskForm = () => {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.location}
-                                        placeholder='where is your task taking place?'
+                                        placeholder='Where is your task taking place?'
                                         className='input'
                                         id='location'
                                     />
