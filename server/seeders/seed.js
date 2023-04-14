@@ -1,6 +1,6 @@
 const db = require('../config/connection');
 
-const {User, Task} = require('../models');
+const {User, /*Task */} = require('../models');
 
 
 

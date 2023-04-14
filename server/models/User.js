@@ -24,18 +24,36 @@ const userSchema = new Schema({
     type: [String],
     default: []
   },
-  ownedTasks: [
+  tasks: [
     {
+      taskName: {
+        type: String,
+        required: 'Your task needs a title!',
+        unique: true,
+      },
+      description: {
+        type: String,
+        required: 'Your task needs a description!',
+      },
+      currentFunding: {
+        type: Number,
+        default: 0.00,
+        min: 0.00
+      },
+      assignedUser: {
         type: Schema.Types.ObjectId,
-        ref: 'Task'
-    }
-  ],
-  assignedTasks: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Task'
+        ref: 'User',
+        default: null
+      }
     }
   ]
+  // assignedTasks: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Task',
+  //     default: null
+  //   }
+  // ]
 });
 
 // hash passwords
