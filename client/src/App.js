@@ -30,7 +30,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   }));
 
   return forward(operation);
-})
+});
 
 //apollo
 const client = new ApolloClient({
