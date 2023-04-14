@@ -17,6 +17,13 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String
+  },
+  skills: {
+    type: [String],
+    default: []
+  }
 });
 
 // hash passwords
