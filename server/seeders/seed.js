@@ -1,13 +1,36 @@
 const db = require("../config/connection");
 
-const { User } = require("../models");
+const { User, Task } = require("../models");
 
-userSeeds = require('./userSeeds.json');
+const userSeeds = require('./userSeeds.json');
+const taskSeeds = require('./taskSeeds.json');
 
 db.once('open', async () => {
     try{
         await User.deleteMany({});
         await User.create(userSeeds);
+
+        for (let index = 0; index < taskSeeds.length; index++) {
+            const { _id, taskAuthor, assignedUser } = await Task.create(taskSeeds[i]);
+            
+            const authors = await User.findOneAndUpdate(
+                { username: taskAuthor  },
+                {
+                    $addToSet: {
+                        createdTasks: _id
+                    }
+                }
+            );
+
+            const assigned = await User.findOneAndUpdate(
+                { username: assignedUser},
+                {
+                    $addToSet: {
+                        assignedTasks: _id
+                    }
+                }
+            );
+        }
 
 
     } catch (err) {

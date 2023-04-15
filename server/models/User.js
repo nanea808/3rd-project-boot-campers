@@ -33,28 +33,16 @@ const userSchema = new Schema({
     type: [String],
     default: [],
   },
-
-  tasks: [
+  createdTasks: [ 
     {
-      taskName: {
-        type: String,
-        required: "Your task needs a title!",
-        unique: true,
-      },
-      description: {
-        type: String,
-        required: "Your task needs a description!",
-      },
-      currentFunding: {
-        type: Number,
-        default: 0.0,
-        min: 0.0,
-      },
-      assignedUser: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        default: null,
-      },
+      type: Schema.Types.ObjectId,
+      ref: 'Task',
+    },
+  ],
+  assignedTasks: [ 
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Task',
     },
   ],
 });
