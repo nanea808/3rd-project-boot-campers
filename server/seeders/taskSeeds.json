@@ -22,7 +22,6 @@
   },
   {
     "taskAuthor": "UserThree",
-    "assignedUser": "",
     "taskName": "Fix the Johnson's fence",
     "description": "The Johnsons' pig fence is broken. Those hogs are running wild!",
     "currentFunding": 15.00
