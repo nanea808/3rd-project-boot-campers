@@ -19,7 +19,7 @@ import Home from "./pages/Home";
 import User from "./pages/User";
 import LoginPage from "./pages/LoginPage";
 
-const httpLink = new HttpLink({ uri: '/graphql' });
+const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql' });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   // add the authorization to the headers
