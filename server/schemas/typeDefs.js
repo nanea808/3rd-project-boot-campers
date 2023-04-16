@@ -17,7 +17,7 @@ const typeDefs = gql`
   type Task {
     _id: ID
     taskAuthor: String
-    assignedAuthor: String
+    assignedUser: String
     taskName: String
     description: String
     currentFunding: String
@@ -25,7 +25,6 @@ const typeDefs = gql`
 
   type Query {
     users: [User]!
-    task: [Task]
   }
 `;
 
