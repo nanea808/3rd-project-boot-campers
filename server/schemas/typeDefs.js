@@ -29,7 +29,7 @@ const typeDefs = gql`
     users: [User]!
     tasks: [Task]!
     unclaimedTasks: [Task]
-    watchedTasks(userId: ID!): [Task]
+    user(userId: ID!): [User]!
   }
 
   type Auth {

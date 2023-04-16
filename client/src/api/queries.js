@@ -15,14 +15,17 @@ export const QUERY_UNCLAIMED_TASKS = gql`
 `;
 
 export const QUERY_WATCHED_TASKS = gql`
-  query tasks($userId: ID!) {
-    tasks(userId: $userId) {
-      _id
-      assignedUser
-      taskAuthor
-      taskName
-      description
-      currentFunding
+  query user($userId: ID!) {
+    user(userId: $userId) {
+      username
+      watchedTasks {
+        _id
+        assignedUser
+        taskAuthor
+        taskName
+        description
+        currentFunding
+      }
     }
   }
 `;

@@ -12,6 +12,12 @@ const resolvers = {
       .populate('assignedTasks')
       .populate('watchedTasks');
     },
+    user: async (parent, {userId}) => {
+      return User.find({_id: userId})
+      .populate('createdTasks')
+      .populate('assignedTasks')
+      .populate('watchedTasks');
+    },
     tasks: async () => {
       return Task.find();
     },
@@ -19,10 +25,6 @@ const resolvers = {
       const params = {assignedUser: null};
       return Task.find(params);
     },
-    watchedTasks: async (parent, userId) => {
-      const params = {_id: userId};
-      return Task.find(params);
-    }
   },
   Mutation: {
     addUser: async (parent, { username, email, password, firstName }) => {

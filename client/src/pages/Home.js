@@ -8,21 +8,22 @@ import SavedTasks from "../components/SavedTasks";
 import { QUERY_UNCLAIMED_TASKS } from "../api/queries";
 import { QUERY_WATCHED_TASKS } from "../api/queries";
 
-// Import from API
 // import { Navigate, useParams } from 'react-router-dom';
 
 function Home() {
-  const { loading_unclaimed, data_unclaimed } = useQuery(QUERY_UNCLAIMED_TASKS);
-  const unclaimedTasks = data_unclaimed?.unclaimedTasks || {};
+  const unclaimedQuery= useQuery(QUERY_UNCLAIMED_TASKS);
+  const unclaimedTasks = unclaimedQuery.data?.unclaimedTasks || {};
+  // const {userId: userParam} = useParams();
+  const userId = "643b9515196f12fe7796060e"
 
 
   // temporarily using UserOnes ID 
-  const { loading_watched, data_watched } = useQuery(QUERY_WATCHED_TASKS, {
-    variables: {userId: "643b9515196f12fe7796060e"}
+  const watchedQuery = useQuery(QUERY_WATCHED_TASKS, {
+    variables: {userId: userId}
   });
-  const watchedTasks = data_watched?.watchedTasks || {};
+  const watchedTasks = watchedQuery.data?.user[0].watchedTasks || {};
 
-  if (loading_unclaimed || loading_watched) {
+  if (unclaimedQuery.loading || watchedQuery.loading) {
     return <div>Loading...</div>;
   }
 
@@ -32,10 +33,10 @@ function Home() {
       <Header />
 
       {/* Saved Tasks */}
-      {loading_watched ? <div>Loading...</div> : <SavedTasks watchedTasks={watchedTasks} />}
+      {watchedQuery.loading ? <div>Loading...</div> : <SavedTasks watchedTasks={watchedTasks} />}
 
       {/* Task Feed */}
-      {loading_unclaimed ? <div>Loading...</div> : <TaskFeed unclaimedTasks={unclaimedTasks} />}
+      {unclaimedQuery.loading ? <div>Loading...</div> : <TaskFeed unclaimedTasks={unclaimedTasks} />}
     </main>
   );
 }
