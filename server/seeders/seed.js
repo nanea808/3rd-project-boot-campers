@@ -8,11 +8,11 @@ const taskSeeds = require('./taskSeeds.json');
 db.once('open', async () => {
     try{
         await User.deleteMany({});
+        await Task.deleteMany({});
         await User.create(userSeeds);
 
         for (let index = 0; index < taskSeeds.length; index++) {
-            const { _id, taskAuthor, assignedUser } = await Task.create(taskSeeds[i]);
-            
+            const { _id, taskAuthor, assignedUser } = await Task.create(taskSeeds[index]);
             const authors = await User.findOneAndUpdate(
                 { username: taskAuthor  },
                 {

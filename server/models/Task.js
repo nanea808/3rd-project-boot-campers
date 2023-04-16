@@ -8,13 +8,12 @@ const taskSchema = new Schema({
     },
     assignedUser: {
         type: String,
-        required: true,
         trim: true
     },
     taskName: {
       type: String,
       required: "Your task needs a title!",
-      unique: true,
+      unique: true
     },
     description: {
       type: String,
