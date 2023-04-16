@@ -24,11 +24,13 @@ const LoginForm = () => {
         variables: { ...values },
       });
 
+      console.log(data);
       Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
     }
   };
+
   return (
     <div className="login-container">
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}

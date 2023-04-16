@@ -13,52 +13,52 @@ export const LOGIN_USER = gql`
   }
 `;
 
-//user signup mutation
-export const ADD_USER = gql`
-    mutation addUser($name: String!, $username: String!, $email: String!, $password: String!) {
-        addUser(username: name: $name, $username, email: $email, password: $password) {
-            name
-            username
-            email
-            password
-        }
-    }
-`;
+// //user signup mutation
+// export const ADD_USER = gql`
+//     mutation addUser($name: String!, $username: String!, $email: String!, $password: String!) {
+//         addUser(username: name: $name, $username, email: $email, password: $password) {
+//             name
+//             username
+//             email
+//             password
+//         }
+//     }
+// `;
 
-//user add skill mutation
-export const ADD_SKILL = gql`
-  mutation addSkill($userId: ID!, $skill: String!) {
-    addSkill(userId: $userId, skill: $skill) {
-      _id
-      username
-      skills
-    }
-  }
-`;
+// //user add skill mutation
+// export const ADD_SKILL = gql`
+//   mutation addSkill($userId: ID!, $skill: String!) {
+//     addSkill(userId: $userId, skill: $skill) {
+//       _id
+//       username
+//       skills
+//     }
+//   }
+// `;
 
-//user delete profile mutation
-export const DELETE_USER = gql`
-  mutation deleteUser($username: String!) {
-    deleteUser(username: $username) {
-      username
-      name
-      email
-      password
-      skills
-    }
-  }
-`;
+// //user delete profile mutation
+// export const DELETE_USER = gql`
+//   mutation deleteUser($username: String!) {
+//     deleteUser(username: $username) {
+//       username
+//       name
+//       email
+//       password
+//       skills
+//     }
+//   }
+// `;
 
-//user delete skill mutation
-export const DELETE_SKILL = gql`
-  mutation deleteSkill($userId: ID!, $skill: String!) {
-    deleteSkill(userId: $userId, skill: $skill) {
-      _id
-      _username
-      _skills
-    }
-  }
-`;
+// //user delete skill mutation
+// export const DELETE_SKILL = gql`
+//   mutation deleteSkill($userId: ID!, $skill: String!) {
+//     deleteSkill(userId: $userId, skill: $skill) {
+//       _id
+//       _username
+//       _skills
+//     }
+//   }
+// `;
 
 //user create task
 // export const ADD_TASK = gql`
