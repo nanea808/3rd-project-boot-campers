@@ -35,8 +35,21 @@ const resolvers = {
 
       return { token, user };
     },
-    addTask: async (parent, { thoughtText }, context) => {
-      
+    addTask: async (parent, { taskName, description }, context) => {
+      if(context.user) {
+        const task = await Task.create({
+          taskName,
+          description,
+          taskAuthor: context.user.username
+        });
+
+        await User.findOneAndUpdated(
+          { _id: context.user._id },
+          { $pull: { createdTasks: task._id }}
+        );
+
+        return task;
+      }
     }
   },
 };
