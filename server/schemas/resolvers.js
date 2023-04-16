@@ -1,12 +1,15 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require("../models");
+const { User, Task } = require("../models");
 // maybe change auth.js to index.js for simple imports
 const { signToken } = require('../auth/auth');
+
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return User.find()
+      .populate('createdTasks')
+      .populate('assignedTasks');
     },
   },
   Mutation: {
