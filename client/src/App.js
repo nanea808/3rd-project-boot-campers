@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //components
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 //pages
 import Home from "./pages/Home";
@@ -30,7 +31,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   }));
 
   return forward(operation);
-})
+});
 
 //apollo
 const client = new ApolloClient({
@@ -48,6 +49,7 @@ function App() {
           <Route path="/user" element= {<User />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
         </Routes>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

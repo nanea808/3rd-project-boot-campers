@@ -8,13 +8,13 @@ function Navbar() {
   const links = [
     { href: "/tasks", label: "Tasks" },
     { href: "/donate", label: "Donate" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/login", label: "Login" },
+   
   ];
 
   return (
     <nav className="nav">
-      <button className="nav-button">Tasker App</button>
+      <button className="nav-button">Task-A-Saurus</button>
       <DropDownNav links={links}/>
       <ul className="nav-list">
         {links.map((link) => (
