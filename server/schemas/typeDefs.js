@@ -27,8 +27,8 @@ const typeDefs = gql`
     users: [User]!
   }
 
-  Auth {
-    token ID!
+  type Auth {
+    token: ID!
     user: User
   }
 
