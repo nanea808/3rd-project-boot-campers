@@ -28,7 +28,8 @@ const typeDefs = gql`
   type Query {
     users: [User]!
     tasks: [Task]!
-    unclaimedTasks: [Task]!
+    unclaimedTasks: [Task]
+    watchedTasks(userId: ID!): [Task]
   }
 `;
 

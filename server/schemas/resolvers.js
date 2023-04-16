@@ -14,6 +14,10 @@ const resolvers = {
     unclaimedTasks: async () => {
       const params = {assignedUser: null};
       return Task.find(params);
+    },
+    watchedTasks: async (parent, userId) => {
+      const params = {_id: userId};
+      return Task.find(params);
     }
   },
   // Mutation: {
