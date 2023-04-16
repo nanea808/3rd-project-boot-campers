@@ -12,7 +12,9 @@ db.once('open', async () => {
         await User.create(userSeeds);
 
         for (let index = 0; index < taskSeeds.length; index++) {
-            const { _id, taskAuthor, assignedUser } = await Task.create(taskSeeds[index]);
+            const { _id, taskAuthor, assignedUser, watchingUsers } = await Task.create(taskSeeds[index]);
+
+            // define taskAuthor for tasks
             const authors = await User.findOneAndUpdate(
                 { username: taskAuthor  },
                 {
@@ -21,7 +23,8 @@ db.once('open', async () => {
                     }
                 }
             );
-
+            
+            // define assignedUser for tasks with assigned users
             const assigned = await User.findOneAndUpdate(
                 { username: assignedUser},
                 {
@@ -30,6 +33,18 @@ db.once('open', async () => {
                     }
                 }
             );
+
+            for (let index = 0; index < watchingUsers.length; index++) {
+                const watchingUser = await User.findOneAndUpdate(
+                    { username: watchingUsers[index]},
+                    {
+                        $addToSet: {
+                            watchedTasks: _id
+                        }
+                    }
+                )
+            }
+
         }
 
 

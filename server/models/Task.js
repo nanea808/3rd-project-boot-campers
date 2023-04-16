@@ -10,6 +10,9 @@ const taskSchema = new Schema({
         type: String,
         trim: true
     },
+    watchingUsers: [
+      {type: String}
+    ],
     taskName: {
       type: String,
       required: "Your task needs a title!",
@@ -24,11 +27,6 @@ const taskSchema = new Schema({
       default: 0.0,
       min: 0.0,
     },
-    // assignedUser: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: "User",
-    //   default: null,
-    // },
   });
 
   const Task = model('Task', taskSchema);

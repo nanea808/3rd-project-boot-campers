@@ -5,7 +5,8 @@ const resolvers = {
     users: async () => {
       return User.find()
       .populate('createdTasks')
-      .populate('assignedTasks');
+      .populate('assignedTasks')
+      .populate('watchedTasks');
     },
     tasks: async () => {
       return Task.find();
