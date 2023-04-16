@@ -12,16 +12,7 @@ function TaskFeed({unclaimedTasks}) {
   //    current funding
   // --button to help fund a task (would utilize the paypal API )
   // --button to claim a task if a user is logged in
-
-  // export const QUERY_UNCLAIMED_TASKS = gql`
-  // query getUnclaimedTasks {
-  //   task(assignedUser: null) {
-  //       taskAuthor
-  //       taskName
-  //       description
-  //       currentFunding
-  //   }
-  // }
+  
   if (!unclaimedTasks.length) {
     return <h3>No Tasks Yet</h3>;
   }
