@@ -24,6 +24,15 @@ function TaskFeed() {
     }
   ];
 
+  // on the task feed, we need to see...
+  // --all unassigned tasks
+  //    task name
+  //    task description
+  //    task author
+  //    current funding
+  // --button to help fund a task (would utilize the paypal API )
+  // --button to claim a task
+
   return (
     <div className="task-feed-container">
       <h1 className="task-feed-title">Task Feed</h1>
