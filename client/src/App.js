@@ -10,6 +10,9 @@ import {
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+//context api
+import { AccountProvider } from "./context/GlobalState";
+
 //components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -19,38 +22,39 @@ import Home from "./pages/Home";
 import User from "./pages/User";
 import LoginPage from "./pages/LoginPage";
 
-const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql' });
+const httpLink = new HttpLink({ uri: "http://localhost:3001/graphql" });
 
-// const authMiddleware = new ApolloLink((operation, forward) => {
-//   // add the authorization to the headers
-//   operation.setContext(({ headers = {} }) => ({
-//     headers: {
-//       ...headers,
-//       authorization: localStorage.getItem('id_token') || null,
-//     }
-//   }));
+const authMiddleware = new ApolloLink((operation, forward) => {
+  // add the authorization to the headers
+  operation.setContext(({ headers = {} }) => ({
+    headers: {
+      ...headers,
+      authorization: localStorage.getItem('id_token') || null,
+    }
+  }));
 
-//   return forward(operation);
-// });
+  return forward(operation);
+});
 
 //apollo
 const client = new ApolloClient({
-  link: httpLink,
   cache: new InMemoryCache(),
-  // link: concat(authMiddleware, httpLink),
+  link: concat(authMiddleware, httpLink),
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/user" element= {<User />}></Route>
-          <Route path="/login" element={<LoginPage />}></Route>
-        </Routes>
-        <Footer />
+        <AccountProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/user" element={<User />}></Route>
+            <Route path="/login" element={<LoginPage />}></Route>
+          </Routes>
+          <Footer />
+        </AccountProvider>
       </Router>
     </ApolloProvider>
   );
