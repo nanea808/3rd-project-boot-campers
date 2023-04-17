@@ -1,6 +1,8 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { useMutation } from '@apollo/client';
+import { ADD_TASK } from '../../api/mutations';
 
 //yup validation schema
 //will likely need to be revised depending on Task model fields
@@ -24,6 +26,13 @@ const schema = Yup.object().shape({
 });
 
 const addTaskForm = () => {
+    const [ addTask ] = useMutation(ADD_TASK);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        addTask({ variables: { taskAuthor } }); //we may want to tap into apollo's uuid generating capability in the resolvers to assign unique ids to all new tasks, and use id as var here instead
+    }
+
     return(
         <div className="form-container">
             <Formik
@@ -121,7 +130,7 @@ const addTaskForm = () => {
                                     )}
                                 </div>
                                 <div>
-                                    <button type="submit" className="button">
+                                    <button type="submit" className="button" onClick={handleClick}>
                                         Submit
                                     </button>
                                 </div>
