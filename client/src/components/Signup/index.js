@@ -43,8 +43,10 @@ function SignupForm() {
             }) => (
             <div className="signup">
                 <div className="form">
-                <form noValidate onSubmit={handleSubmit}>
-                    <h1>Sign Up</h1>
+                <h1 className='heading'>Sign Up</h1>
+                <Form noValidate onSubmit={handleSubmit}>
+                <div className="input-group">
+                    
                         <input
                             type="text"
                             name="firstName"
@@ -58,6 +60,7 @@ function SignupForm() {
                             <p className="error">
                             {errors.firstName && touched.firstName && errors.firstName}
                             </p>
+                        </div>
 
                         <input
                             type="text"
@@ -102,7 +105,7 @@ function SignupForm() {
                         
                         {/* add styling to button */}
                         <button type="submit">Sign Up</button> 
-                </form>
+                </Form>
                 </div>
             </div>
             )}
