@@ -10,7 +10,8 @@ function LoginPage() {
             return (
                 <>
                     <LoginForm />
-                    <button onClick={() => setLoggingIn(false)}>Sign Up Here</button>
+                    
+                    <button className="signup" onClick={() => setLoggingIn(false)}>Sign Up Here</button>
                 </>
             );
         } else {
