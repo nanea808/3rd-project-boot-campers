@@ -15,7 +15,7 @@ const schema = Yup.object().shape({
 });
 
 const LoginForm = () => {
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
   const handleFormSubmit = async (values) => {
     console.log(values);
