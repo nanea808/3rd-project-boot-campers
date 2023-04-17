@@ -7,16 +7,24 @@ import SavedTasks from "../components/SavedTasks";
 
 import { QUERY_UNCLAIMED_TASKS } from "../api/queries";
 import { QUERY_WATCHED_TASKS } from "../api/queries";
+import { QUERY_FUNDED_TASKS } from "../api/queries";
+import FundedTasks from "../components/FundedTasks";
 
 function UserTasksPage () {
-    // temporarily using UserOnes ID 
-    const userId = "643b9515196f12fe7796060e"
+    // temporarily using UserOnes ID and username
+    const userId = "643ccd8f784b03a9752b30d4";
+    const username = "UserOne";
 
 
     const watchedQuery = useQuery(QUERY_WATCHED_TASKS, {
       variables: {userId: userId}
     });
     const watchedTasks = watchedQuery.data?.user[0].watchedTasks || {};
+
+    const fundedQuery = useQuery(QUERY_FUNDED_TASKS, {
+        variables: {userId: userId}
+      });
+      const fundedTasks = fundedQuery.data?.user[0].fundedTasks || {};
 
     return (
         <main>
@@ -32,6 +40,7 @@ function UserTasksPage () {
                 </div>
                 <div id="supported-tasks">
                     {/* insert scrollable list component */}
+                    {fundedQuery.loading ? <div>Loading...</div> : <FundedTasks tasks={fundedTasks} username={username}/>}
                 </div>
                 <div id="pending-tasks">
                     {/* insert scrollable list component */}
