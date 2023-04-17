@@ -3,8 +3,12 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_USER } from "../api/queries";
+import { useState } from 'react';
+import addTaskForm from "../components/TaskAdd";
 
 function User () {
+    const [showTaskForm, setTaskForm ] = useState(false); //for rendering addTaskForm component on button press only
+
     const { userId } = useParams();
     const { loading, data } = useQuery(QUERY_SINGLE_USER, { 
         variables: { userId: userId },
@@ -16,11 +20,17 @@ function User () {
         return <div>Now Loading</div>;
     }
 
+    const handleClick = () => {
+        setTaskForm(true);
+    }
+
     return (
         <main>
             <div> 
-                <button type="" className="">Modify Details</button>
-                <button type="" className="">Delete Account</button>
+                <button id="modify-user" type="button" className="">Modify Details</button>
+                <button id="delete-user" type="button" className="">Delete Account</button>
+                <button id="add-task" type="button" className="" onClick={handleClick}>Create Task</button>
+                {showTaskForm && <addTaskForm />}
             </div>
             <div>
                 <img src="" alt="avatar" placeholder="user-avatar"></img>
