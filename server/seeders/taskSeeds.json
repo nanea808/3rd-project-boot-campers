@@ -4,27 +4,30 @@
     "assignedUser": "UserThree",
     "taskName": "Clean my Garden",
     "description": "I grow vegetables every year, but I'm getting old and need help. Please help build my garden!",
-    "currentFunding": 30.00
+    "currentFunding": 30.00,
+    "watchingUsers": ["UserOne","UserThree"]
   },
   {
     "taskAuthor": "UserOne",
     "assignedUser": "UserTwo",
     "taskName": "Mow my lawn",
     "description": "My mower broke, so I need someone to come over and help mow my lawn.",
-    "currentFunding": 20.00
+    "currentFunding": 20.00,
+    "watchingUsers": ["UserOne","UserTwo"]
   },
   {
     "taskAuthor": "UserTwo",
     "assignedUser": "UserFour",
     "taskName": "5th Avenue Pothole",
     "description": "There's a pothole on 5th avenue that needs to be filled.",
-    "currentFunding": 245.60
+    "currentFunding": 245.60,
+    "watchingUsers": ["UserOne","UserThree","UserTwo","UserFour"]
   },
   {
     "taskAuthor": "UserThree",
-    "assignedUser": "",
     "taskName": "Fix the Johnson's fence",
     "description": "The Johnsons' pig fence is broken. Those hogs are running wild!",
-    "currentFunding": 15.00
+    "currentFunding": 15.00,
+    "watchingUsers": ["UserThree"]
   }
 ]

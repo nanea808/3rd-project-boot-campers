@@ -12,6 +12,7 @@ const typeDefs = gql`
     skills: [String]
     createdTasks: [Task]
     assignedTasks: [Task]
+    watchedTasks: [Task]
   }
 
   type Task {
@@ -21,10 +22,14 @@ const typeDefs = gql`
     taskName: String
     description: String
     currentFunding: String
+    watchingUsers: [String]
   }
 
   type Query {
     users: [User]!
+    tasks: [Task]!
+    unclaimedTasks: [Task]
+    user(userId: ID!): [User]!
   }
 
   type Auth {

@@ -9,7 +9,21 @@ const resolvers = {
     users: async () => {
       return User.find()
       .populate('createdTasks')
-      .populate('assignedTasks');
+      .populate('assignedTasks')
+      .populate('watchedTasks');
+    },
+    user: async (parent, {userId}) => {
+      return User.find({_id: userId})
+      .populate('createdTasks')
+      .populate('assignedTasks')
+      .populate('watchedTasks');
+    },
+    tasks: async () => {
+      return Task.find();
+    },
+    unclaimedTasks: async () => {
+      const params = {assignedUser: null};
+      return Task.find(params);
     },
   },
   Mutation: {

@@ -45,6 +45,12 @@ const userSchema = new Schema({
       ref: 'Task',
     },
   ],
+  watchedTasks: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Task',
+    },
+  ]
 });
 
 // hash passwords
