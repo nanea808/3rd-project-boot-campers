@@ -1,6 +1,8 @@
 import React from "react";
 import DropDownNav from "./DropDownNav"
 
+import Auth from '../../auth'
+
 function Navbar() {
   // const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false);
   // const toggleMobileNav = () => setIsMobileNavOpen(!isMobileNavOpen);
@@ -10,8 +12,11 @@ function Navbar() {
     { href: "/tasks", label: "Tasks" },
     { href: "/donate", label: "Donate" },
     { href: "/login", label: "Login" },
-   
   ];
+
+  function logoutButton () {
+    Auth.logout()
+  }
 
   return (
     <nav className="nav">
@@ -20,7 +25,7 @@ function Navbar() {
       <ul className="nav-list">
         {links.map((link) => (
           <li className="nav-item" key={link.href}>
-            <a href={link.href}>{link.label}</a>
+            {Auth.loggedIn() && link.label === 'Login' ? <button className="logout-button" onClick={logoutButton}>Logout</button> : <a href={link.href}>{link.label}</a>}
           </li>
         ))}
       </ul>

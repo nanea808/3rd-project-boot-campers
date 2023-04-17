@@ -34,7 +34,7 @@ class AuthService {
     localStorage.setItem('id_token', idToken);
     localStorage.setItem('userID', state.userID);
     localStorage.setItem('isLoggedIn', state.isLoggedIn);
-    // window.location.assign('/');
+    window.location.assign('/');
   }
 
   logout() {

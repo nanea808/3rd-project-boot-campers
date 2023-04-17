@@ -21,12 +21,13 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import User from "./pages/User";
 import LoginPage from "./pages/LoginPage";
-
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Developers from "./pages/Developers"
-
 import UserTasksPage from "./pages/UserTasksPage";
+
+//auth
+import Auth from './auth';
 
 const httpLink = new HttpLink({ uri: "http://localhost:3001/graphql" });
 
@@ -53,6 +54,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <AccountProvider>
+          {Auth.loggedIn()}
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
