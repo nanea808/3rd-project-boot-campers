@@ -15,6 +15,7 @@ const schema = Yup.object().shape({
         .required('Please give a description of the task.')
         .min(15, 'Description must be at least 15 characters')
         .max(300, 'Description can be no more than 200 characters'),
+    // to be implemented at later date (stretch goal)
     // location: Yup.string()
     //     .required('Please include where the task will take place')
     //     .min(15, 'Must be at least 15 characters')
@@ -30,7 +31,7 @@ const addTaskForm = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        addTask({ variables: { taskAuthor } }); //we may want to tap into apollo's uuid generating capability in the resolvers to assign unique ids to all new tasks, and use id as var here instead
+        addTask({ variables: { taskAuthor, taskName, description } }); //we may want to tap into apollo's uuid generating capability in the resolvers to assign unique ids to all new tasks, and use id as var here instead
     }
 
     return(
