@@ -13,6 +13,19 @@ export const LOGIN_USER = gql`
   }
 `;
 
+//user create task
+//need to make taskAuthor = logged-in user id ... replace $userId with $taskAuthor?
+export const ADD_TASK = gql`
+    mutation addTask($userId: ID!, $taskAuthor: String! $taskName: String!, $description: String!, $currentFunding: Number!) {
+      addTask(userId: $userId, taskAuthor: $userId, taskName: $taskName, description: $description, currentFunding: $currentFunding)
+        _id
+        taskName
+        taskAuthor
+        description
+        currentFunding
+    }
+`;
+
 // //user signup mutation
 // export const ADD_USER = gql`
 //     mutation addUser($name: String!, $username: String!, $email: String!, $password: String!) {
@@ -60,10 +73,6 @@ export const LOGIN_USER = gql`
 //   }
 // `;
 
-//user create task
-// export const ADD_TASK = gql`
-//     mutation addTask($)
-// `;
 
 //user create request
 
