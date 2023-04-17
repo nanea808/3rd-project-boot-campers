@@ -1,5 +1,5 @@
 import React from "react";
-import User from "../../../server/models/User";
+// import User from "../../../server/models/User";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_USER } from "../api/queries";
