@@ -8,18 +8,18 @@ import SavedTasks from "../components/SavedTasks";
 import { QUERY_UNCLAIMED_TASKS } from "../api/queries";
 import { QUERY_WATCHED_TASKS } from "../api/queries";
 
-// import { Navigate, useParams } from 'react-router-dom';
+import { useAccountContext } from '../context/GlobalState';
 
 function Home() {
   const unclaimedQuery= useQuery(QUERY_UNCLAIMED_TASKS);
   const unclaimedTasks = unclaimedQuery.data?.unclaimedTasks || {};
   // const {userId: userParam} = useParams();
-
-    // temporarily using UserOnes ID 
-  const userId = "643ccd8f784b03a9752b30d4"
+  // const userId = "643b74774cd8e64cc511791b";
+  const [state] = useAccountContext();
+  console.log(state);
 
   const watchedQuery = useQuery(QUERY_WATCHED_TASKS, {
-    variables: {userId: userId}
+    variables: {userId: state.userID}
   });
   const watchedTasks = watchedQuery.data?.user[0].watchedTasks || {};
 

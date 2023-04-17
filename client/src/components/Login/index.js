@@ -1,10 +1,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../api/mutations";
-
 import Auth from "../../auth";
+
+import { UPDATE_ACCOUNT_ID, UPDATE_ACCOUNT_STATUS } from "../../context/actions";
+import { useAccountContext } from "../../context/GlobalState";
 
 //yup validation schema
 const schema = Yup.object().shape({
@@ -15,7 +18,8 @@ const schema = Yup.object().shape({
 });
 
 const LoginForm = () => {
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
+  const [state, dispatch] = useAccountContext();
 
   const handleFormSubmit = async (values) => {
     console.log(values);
@@ -23,9 +27,23 @@ const LoginForm = () => {
       const { data } = await login({
         variables: { ...values },
       });
-
       console.log(data);
-      Auth.login(data.login.token);
+
+      const token = data.login.token;
+      const userID = data.login.user._id;
+      const isLoggedIn = !state.isLoggedIn;
+
+      await dispatch({
+        type: UPDATE_ACCOUNT_ID,
+        userID,
+      });
+
+      await dispatch({
+        type: UPDATE_ACCOUNT_STATUS,
+        isLoggedIn: state.isLoggedIn,
+      })
+      
+      Auth.login(token, { userID, isLoggedIn });
     } catch (err) {
       console.error(err);
     }
