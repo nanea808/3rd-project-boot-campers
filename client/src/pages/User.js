@@ -22,7 +22,7 @@ function User () {
             <div>
                 <h2>My Tasks</h2>
                 <div>
-                    key={createdTasks}
+                    key={user.createdTasks}
                 </div>
             </div>
             <div>
