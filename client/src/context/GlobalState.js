@@ -4,10 +4,18 @@ import { useAccountReducer } from "./reducers";
 const AccountContext = createContext();
 const { Provider } = AccountContext;
 
-const initialState = {
-  isLoggedIn: false,
-  userID: "",
-};
+const savedState = { userID: localStorage.getItem('userID'), isLoggedIn: localStorage.getItem('isLoggedIn') };
+console.log(savedState);
+let initialState;
+
+if (savedState.isLoggedIn != null || savedState.userID != null) {
+  initialState = savedState;
+} else {
+  initialState = {
+    isLoggedIn: false,
+    userID: "",
+  };
+}
 
 const AccountProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useAccountReducer(initialState);

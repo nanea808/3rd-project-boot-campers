@@ -16,6 +16,7 @@ function Home() {
   // const {userId: userParam} = useParams();
   // const userId = "643b74774cd8e64cc511791b";
   const [state] = useAccountContext();
+  console.log(state);
 
   const watchedQuery = useQuery(QUERY_WATCHED_TASKS, {
     variables: {userId: state.userID}

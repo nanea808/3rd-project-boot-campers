@@ -12,7 +12,7 @@ function TaskFeed({tasks}) {
   //    current funding
   // --button to help fund a task (would utilize the paypal API )
   // --button to claim a task if a user is logged in
-  
+
   if (!tasks.length) {
     return <h3>No Tasks Yet</h3>;
   }
@@ -22,7 +22,7 @@ function TaskFeed({tasks}) {
       <h1 className="task-feed-title">Task Feed</h1>
       <div className="task-cards-container">
         {tasks.map(task =>  (
-          <TaskCard key={task.id} task={task} />
+          <TaskCard key={task._id} task={task} />
         ))}
       </div>
     </div>
