@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import User from "./pages/User";
 import LoginPage from "./pages/LoginPage";
+import UserTasksPage from "./pages/UserTasksPage";
 
 const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql' });
 
@@ -49,6 +50,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/user" element= {<User />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/tasks" element={<UserTasksPage/>}></Route>
         </Routes>
         <Footer />
       </Router>

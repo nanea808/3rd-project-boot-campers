@@ -27,6 +27,12 @@ const taskSchema = new Schema({
       default: 0.0,
       min: 0.0,
     },
+    fundingUsers: [
+      {
+        username: {type: String},
+        funding: {type: String}
+      }
+    ]
   });
 
   const Task = model('Task', taskSchema);
