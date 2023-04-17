@@ -1,7 +1,21 @@
 import React from "react";
 import User from "../../../server/models/User";
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
+import { QUERY_SINGLE_USER } from "../api/queries";
 
 function User () {
+    const { userId } = useParams();
+    const { loading, data } = useQuery(QUERY_SINGLE_USER, { 
+        variables: { userId: userId },
+    });
+
+    const user = data?.user || {};
+
+    if (loading) {
+        return <div>Now Loading</div>;
+    }
+
     return (
         <main>
             <div> 
@@ -12,33 +26,33 @@ function User () {
                 <img src="" alt="avatar" placeholder="user-avatar"></img>
             </div>
             <div>
-                <p>key={user.username}</p>
-                <p>key={user.email}</p>
+                <p>{user.username}</p>
+                <p>{user.email}</p>
             </div>
             <div>
                 <h1>About Me</h1>
-                <p>key={user.description}</p>
+                <p>{user.description}</p>
             </div>
             <div>
                 <h2>My Tasks</h2>
                 <div>
-                    key={user.createdTasks}
+                    {user.createdTasks}
                 </div>
             </div>
             <div>
                 <h2>Assigned Tasks</h2>
                 <div>
-                    key={user.assignedTasks}
+                    {user.assignedTasks}
                 </div>
             </div>
             <div>
                 <h2>Watched Tasks</h2>
                     <div>
-                        key={user.watchedTasks}
+                        {user.watchedTasks}
                     </div>
             </div>
             <div id="skills-container">
-                key={user.skills}
+                {user.skills}
             </div>
         </main>
     );
