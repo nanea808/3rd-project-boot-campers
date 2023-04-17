@@ -29,7 +29,7 @@ const taskSchema = new Schema({
     },
     fundingUsers: [
       {
-        fundingUserInfo: {type: Schema.Types.ObjectId, ref: 'Task'},
+        username: {type: String},
         funding: {type: String}
       }
     ]

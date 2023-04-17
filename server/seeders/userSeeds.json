@@ -6,7 +6,21 @@
     "email": "userone@gmail.com",
     "password": "pass0001",
     "description": "This is the description for user number one. I participated in FFA in high school so I know how to care for animals.",
-    "skills": ["Farming", "Animal care", "fightmilk"]
+    "skills": ["Farming", "Animal care", "fightmilk"],
+    "fundedTasks": [
+      {
+        "fundedTaskName": "Clean My Garden",
+        "funding": 20
+      },
+      {
+        "fundedTaskName": "5th Avenue Pothole",
+        "funding": 50
+      },
+      {
+        "fundedTaskName": "Fix the Johnson's fence",
+        "funding": 10
+      }
+    ]
   },
   {
     "firstName": "Twoser",
@@ -15,7 +29,13 @@
     "email": "usertwo@gmail.com",
     "password": "pass0002",
     "description": "This is user two's description. I'm an electrician by trade.",
-    "skills": ["Appliance maintenance", "extermination experience"]
+    "skills": ["Appliance maintenance", "extermination experience"],
+    "fundedTasks": [
+      {
+        "fundedTaskName": "Clean my Garden",
+        "funding": 10
+      }
+    ]
   },
   {
     "firstName": "Threeser",
@@ -33,5 +53,28 @@
     "password": "pass0004",
     "description": "I'm user four. I'm a certified contractor.",
     "skills": ["Construction", "roadwork experience"]
+  },
+  {
+    "firstName": "Mysterious",
+    "lastName": "Benefactor",
+    "username": "MysteriousBenefactor",
+    "email": "mysterious-benefactor@gmail.com",
+    "password": "pass0005",
+    "description": "I have bucketfulls of money.",
+    "skills": ["Basically batman"],
+    "fundedTasks": [
+      {
+        "fundedTaskName": "Mow my lawn",
+        "funding": 20
+      },
+      {
+        "fundedTaskName": "5th Avenue Pothole",
+        "funding": 195.60
+      },
+      {
+        "fundedTaskName": "Fix the Johnson's fence",
+        "funding": 5
+      }
+    ]
   }
 ]

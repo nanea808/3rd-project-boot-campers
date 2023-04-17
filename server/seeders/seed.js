@@ -12,9 +12,9 @@ db.once('open', async () => {
         await User.create(userSeeds);
 
         for (let index = 0; index < taskSeeds.length; index++) {
-            const { _id, taskAuthor, assignedUser, watchingUsers } = await Task.create(taskSeeds[index]);
+            const { _id, taskAuthor, assignedUser, watchingUsers, fundingUsers } = await Task.create(taskSeeds[index]);
 
-            // define taskAuthor for tasks
+            // update authoring user's list of created tasks
             const authors = await User.findOneAndUpdate(
                 { username: taskAuthor  },
                 {
@@ -24,7 +24,7 @@ db.once('open', async () => {
                 }
             );
             
-            // define assignedUser for tasks with assigned users
+            // update assigned user's list of assigned tasks
             const assigned = await User.findOneAndUpdate(
                 { username: assignedUser},
                 {
@@ -34,12 +34,29 @@ db.once('open', async () => {
                 }
             );
 
-            for (let index = 0; index < watchingUsers.length; index++) {
+            // cycle through the array of watching users
+            // update each watching user's list of watched tasks
+            for (let jndex = 0; jndex < watchingUsers.length; jndex++) {
                 const watchingUser = await User.findOneAndUpdate(
-                    { username: watchingUsers[index]},
+                    { username: watchingUsers[jndex]},
                     {
                         $addToSet: {
                             watchedTasks: _id
+                        }
+                    }
+                )
+            };
+
+            // cycle through the array of funding users
+            // update each funding user's list of funded tasks
+            // update each funding user's funding for that task
+            for (let jndex = 0; jndex < fundingUsers.length; jndex++) {
+                const fundingUser = await User.findOneAndUpdate(
+                    { username: fundingUsers[jndex].username},
+                    {
+                        $addToSet: {
+                            fundedTask: _id,
+                            funding: fundingUsers[jndex].funding
                         }
                     }
                 )

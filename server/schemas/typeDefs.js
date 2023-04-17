@@ -13,6 +13,17 @@ const typeDefs = gql`
     createdTasks: [Task]
     assignedTasks: [Task]
     watchedTasks: [Task]
+    fundedTasks: [FundingInfo]
+  }
+
+  type FundingInfo {
+    fundedTask: Task
+    funding: String
+  }
+
+  type FundingUsers {
+    username: String
+    funding: String
   }
 
   type Task {
@@ -23,6 +34,7 @@ const typeDefs = gql`
     description: String
     currentFunding: String
     watchingUsers: [String]
+    fundingUsers: [FundingUsers]
   }
 
   type Query {
