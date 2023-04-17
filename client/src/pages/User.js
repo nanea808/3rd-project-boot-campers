@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_USER } from "../api/queries";
 import { useState } from 'react';
-import addTaskForm from "../components/TaskAdd";
+import addTaskForm from "../components/TaskAdd"; //shouldn't this be read on line 35?
 
 function User () {
     const [showTaskForm, setTaskForm ] = useState(false); //for rendering addTaskForm component on button press only
@@ -23,6 +23,8 @@ function User () {
     const handleClick = () => {
         setTaskForm(true);
     }
+
+    //do we need to add additional btn click handling for Modify and Delete btns? Are those going to be componenets, or will those just render the user's info as editable text inputs on the page? 
 
     return (
         <main>
