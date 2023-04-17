@@ -1,0 +1,37 @@
+[
+  {
+    "firstName": "Yuser",
+    "lastName": "Wun",
+    "username": "UserOne",
+    "email": "userone@gmail.com",
+    "password": "pass0001",
+    "description": "This is the description for user number one. I participated in FFA in high school so I know how to care for animals.",
+    "skills": ["Farming", "Animal care", "fightmilk"]
+  },
+  {
+    "firstName": "Twoser",
+    "lastName": "Tue",
+    "username": "UserTwo",
+    "email": "usertwo@gmail.com",
+    "password": "pass0002",
+    "description": "This is user two's description. I'm an electrician by trade.",
+    "skills": ["Appliance maintenance", "extermination experience"]
+  },
+  {
+    "firstName": "Threeser",
+    "lastName": "Tree",
+    "username": "UserThree",
+    "email": "userthree@gmail.com",
+    "password": "pass0003",
+    "description": "This is user three's description. I have a farm that has a broken fence.",
+    "skills": ["Farming", "Lots of tools", "general plumbing"]
+  },
+  {
+    "firstName": "Fourser",
+    "username": "UserFour",
+    "email": "userfour@gmail.com",
+    "password": "pass0004",
+    "description": "I'm user four. I'm a certified contractor.",
+    "skills": ["Construction", "roadwork experience"]
+  }
+]

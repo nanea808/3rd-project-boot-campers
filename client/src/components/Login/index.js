@@ -1,29 +1,44 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import React from "react";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../api/mutations";
 
-import Auth from '../../auth';
+import Auth from "../../auth";
 
 //yup validation schema
 const schema = Yup.object().shape({
-  email: Yup.string()
-    .required('Email required')
-    .email('Invalid email'),
+  email: Yup.string().required("Email required").email("Invalid email"),
   password: Yup.string()
-    .required('Password required')
-    .min(8, 'Password must be at least 8 characters'),
+    .required("Password required")
+    .min(8, "Password must be at least 8 characters"),
 });
 
 const LoginForm = () => {
+  const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  const handleFormSubmit = async (values) => {
+    console.log(values);
+    try {
+      const { data } = await login({
+        variables: { ...values },
+      });
+
+      console.log(data);
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className="login-container">
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
       <Formik
         validationSchema={schema}
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
-          // comment this out and replace with desired functionality (e.g., redirect to user profile page logged-in view)
-          console.log('User email and password passed validation. Values: ' + JSON.stringify(values));
+          handleFormSubmit(values);
         }}
       >
         {({
@@ -84,6 +99,9 @@ const LoginForm = () => {
           </div>
         )}
       </Formik>
+      {error && (
+        <div>{error.message}</div>
+      )}
     </div>
   );
 };
