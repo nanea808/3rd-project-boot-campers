@@ -10,13 +10,15 @@ const resolvers = {
       return User.find()
       .populate('createdTasks')
       .populate('assignedTasks')
-      .populate('watchedTasks');
+      .populate('watchedTasks')
+      .populate('fundedTasks');
     },
     user: async (parent, {userId}) => {
       return User.find({_id: userId})
       .populate('createdTasks')
       .populate('assignedTasks')
-      .populate('watchedTasks');
+      .populate('watchedTasks')
+      .populate('fundedTasks');
     },
     tasks: async () => {
       return Task.find();

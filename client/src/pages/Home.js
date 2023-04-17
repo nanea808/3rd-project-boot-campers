@@ -14,10 +14,10 @@ function Home() {
   const unclaimedQuery= useQuery(QUERY_UNCLAIMED_TASKS);
   const unclaimedTasks = unclaimedQuery.data?.unclaimedTasks || {};
   // const {userId: userParam} = useParams();
-  const userId = "643b9515196f12fe7796060e"
 
+    // temporarily using UserOnes ID 
+  const userId = "643ccd8f784b03a9752b30d4"
 
-  // temporarily using UserOnes ID 
   const watchedQuery = useQuery(QUERY_WATCHED_TASKS, {
     variables: {userId: userId}
   });
@@ -33,10 +33,10 @@ function Home() {
       <Header />
 
       {/* Saved Tasks */}
-      {watchedQuery.loading ? <div>Loading...</div> : <SavedTasks watchedTasks={watchedTasks} />}
+      {watchedQuery.loading ? <div>Loading...</div> : <SavedTasks tasks={watchedTasks} />}
 
       {/* Task Feed */}
-      {unclaimedQuery.loading ? <div>Loading...</div> : <TaskFeed unclaimedTasks={unclaimedTasks} />}
+      {unclaimedQuery.loading ? <div>Loading...</div> : <TaskFeed tasks={unclaimedTasks} />}
     </main>
   );
 }
