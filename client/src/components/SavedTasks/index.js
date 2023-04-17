@@ -11,7 +11,7 @@ function SavedTasks({tasks}) {
           <h1 className="task-feed-title">Saved Tasks</h1>
           <div className="task-cards-container">
             {tasks.map(task => (
-              <TaskCard key={task.id} task={task} />
+              <TaskCard key={task._id} task={task} />
             ))}
           </div>
         </div>
