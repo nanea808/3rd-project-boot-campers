@@ -51,14 +51,14 @@ db.once('open', async () => {
             // update each funding user's list of funded tasks
             // update each funding user's funding for that task
             for (let jndex = 0; jndex < fundingUsers.length; jndex++) {
-                console.log(`currently working on ${fundingUsers[jndex].username}'s tasks. _id is: ${_id}.`)
+                console.log(`currently seeding ${fundingUsers[jndex].username}'s funded tasks. _id is: ${_id}.`)
                 const fundingUser = await User.findOneAndUpdate(
                     { username: fundingUsers[jndex].username},
                     {
                         $addToSet: {
-                            fundedTask: _id,
-                            funding: fundingUsers[jndex].funding
-                        }
+                            fundedTasks: _id,
+                            // funding: fundingUsers[jndex].funding
+                        },
                     }
                 )
             }

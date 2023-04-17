@@ -53,8 +53,15 @@ const userSchema = new Schema({
   ],
   fundedTasks: [
     {
-      fundedTask: {type: Schema.Types.ObjectId, ref: 'Task'},
-      funding: {type: String}
+      type: Schema.Types.ObjectId, 
+      ref: 'Task'
+      // fundedTask: {
+      //   type: Schema.Types.ObjectId, 
+      //   ref: 'Task'
+      // },
+      // funding: {
+      //   type: String
+      // }
     }
   ]
 });

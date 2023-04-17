@@ -13,13 +13,14 @@ const typeDefs = gql`
     createdTasks: [Task]
     assignedTasks: [Task]
     watchedTasks: [Task]
-    fundedTasks: [FundingInfo]
+    # fundedTasks: [FundingInfo]
+    fundedTasks: [Task]
   }
 
-  type FundingInfo {
-    fundedTask: Task
-    funding: String
-  }
+  # type FundingInfo {
+  #   fundedTask: Task
+  #   funding: String
+  # }
 
   type FundingUsers {
     username: String
