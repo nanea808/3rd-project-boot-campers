@@ -50,6 +50,12 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Task',
     },
+  ],
+  fundedTasks: [
+    {
+      fundedTaskName: {type: Schema.Types.ObjectId, ref: 'Task'},
+      funding: {type: String}
+    }
   ]
 });
 

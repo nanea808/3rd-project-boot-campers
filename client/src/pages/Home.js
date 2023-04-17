@@ -33,10 +33,10 @@ function Home() {
       <Header />
 
       {/* Saved Tasks */}
-      {watchedQuery.loading ? <div>Loading...</div> : <SavedTasks watchedTasks={watchedTasks} />}
+      {watchedQuery.loading ? <div>Loading...</div> : <SavedTasks tasks={watchedTasks} />}
 
       {/* Task Feed */}
-      {unclaimedQuery.loading ? <div>Loading...</div> : <TaskFeed unclaimedTasks={unclaimedTasks} />}
+      {unclaimedQuery.loading ? <div>Loading...</div> : <TaskFeed tasks={unclaimedTasks} />}
     </main>
   );
 }
