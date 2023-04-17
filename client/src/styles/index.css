@@ -269,3 +269,63 @@ header p {
 .button:hover {
   background-color: #3e8e41;
 }
+
+/*****ABOUT********/
+.about {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/******CONTACT*******/
+.Contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.Contact-link {
+  color: var(--deep-sea-blue);
+  font-size: 1.2rem;
+  text-decoration: none;
+  border: 2px solid #0077b5;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.Contact-link:hover {
+  background-color: #0077b5;
+  color: #fff;
+}
+
+/***** DEVELOPERS ****/
+.Developers {
+  font-size: 2em;
+  color: #333;
+  text-align: center;
+}
+
+.developers-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.developers-list li {
+  margin: 0 1em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+  background-color: #f8f8f8;
+  font-size: 1.2em;
+}
