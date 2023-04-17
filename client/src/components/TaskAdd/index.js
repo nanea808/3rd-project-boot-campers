@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { useMutation } from '@apollo/client';
+import { useMutation, gql } from '@apollo/client';
 import { ADD_TASK } from '../../api/mutations';
 
 //yup validation schema
@@ -26,22 +26,44 @@ const schema = Yup.object().shape({
         .max(100.00) //do we want to set a max?
 });
 
-const addTaskForm = () => {
+const AddTaskForm = () => {
     const [ addTask ] = useMutation(ADD_TASK);
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        addTask({ variables: { taskAuthor, taskName, description } }); //we may want to tap into apollo's uuid generating capability in the resolvers to assign unique ids to all new tasks, and use id as var here instead
-    }
+    //refactor to pass user input as values
+    //saving commented out code for testing in case refactor isn't functional
+    // const handleAddTask = (taskName, description, currentFunding) => {
+    //     addTask({
+    //         variables: {
+    //             taskName: taskName,
+    //             description: description,
+    //             currentFunding: currentFunding
+    //         }
+    //     });
+    // };
+
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     addTask({ variables: { taskName: "", description: "" } }); //we may want to tap into apollo's uuid generating capability in the resolvers to assign unique ids to all new tasks, and use id as var here instead
+    // }
 
     return(
         <div className="form-container">
             <Formik
                 validationSchema={schema}
                 initialValues={{ title: '', description: '', currentFunding: '' }}
-                onSubmit={(values) => {
-                    //replace with desired fxnality
-                    console.log('New task passed validation. ' + values);
+                // onSubmit={(values) => {
+                //     //replace with desired fxnality
+                //     console.log('New task passed validation. ' + values);
+                // }}
+                onSubmit={(values, { resetForm }) => {
+                    addTask({
+                        variables: {
+                            taskName: values.taskName,
+                            description: values.description,
+                            currentFunding: values.currentFunding
+                        }
+                    });
+                    resetForm();
                 }}
             >
                 {({
@@ -65,7 +87,7 @@ const addTaskForm = () => {
                                         name='title'
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.taskName}
+                                        // value={values.taskName}
                                         placeholder='Name your task.'
                                         className='input'
                                         id='title'
@@ -83,7 +105,7 @@ const addTaskForm = () => {
                                         name='description'
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.description}
+                                        // value={values.description}
                                         placeholder='Describe your task. What would you like to be done? What work will be involved?'
                                         className='input'
                                         id='description'
@@ -121,7 +143,7 @@ const addTaskForm = () => {
                                         name='currentFunding'
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.currentFunding}
+                                        // value={values.currentFunding}
                                         placeholder='How much would you like to add to this task fund? Remember, other Taskosauruses will be able to donate to the cause, too.'
                                         className='input'
                                         id='currentFunding'
@@ -131,7 +153,7 @@ const addTaskForm = () => {
                                     )}
                                 </div>
                                 <div>
-                                    <button type="submit" className="button" onClick={handleClick}>
+                                    <button type="submit" className="button">
                                         Submit
                                     </button>
                                 </div>
@@ -144,4 +166,4 @@ const addTaskForm = () => {
     );
 };
 
-export default addTaskForm;
+export default AddTaskForm;

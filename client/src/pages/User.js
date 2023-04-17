@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_USER } from "../api/queries";
 import { useState } from 'react';
-import addTaskForm from "../components/TaskAdd"; //shouldn't this be read on line 35?
+import AddTaskForm from "../components/TaskAdd"; //shouldn't this be read on line 35?
 
 function User () {
     const [showTaskForm, setTaskForm ] = useState(false); //for rendering addTaskForm component on button press only
@@ -32,7 +32,7 @@ function User () {
                 <button id="modify-user" type="button" className="">Modify Details</button>
                 <button id="delete-user" type="button" className="">Delete Account</button>
                 <button id="add-task" type="button" className="" onClick={handleClick}>Create Task</button>
-                {showTaskForm && <addTaskForm />}
+                {showTaskForm && <AddTaskForm />}
             </div>
             <div>
                 <img src="" alt="avatar" placeholder="user-avatar"></img>
