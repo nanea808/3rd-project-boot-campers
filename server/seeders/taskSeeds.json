@@ -5,7 +5,17 @@
     "taskName": "Clean my Garden",
     "description": "I grow vegetables every year, but I'm getting old and need help. Please help build my garden!",
     "currentFunding": 30.00,
-    "watchingUsers": ["UserOne","UserThree"]
+    "watchingUsers": ["UserOne","UserThree"],
+    "fundingUsers": [
+      {
+        "username": "UserOne",
+        "funding": 20
+      },
+      {
+        "username": "UserTwo",
+        "funding": 10
+      }
+    ]
   },
   {
     "taskAuthor": "UserOne",
@@ -13,7 +23,13 @@
     "taskName": "Mow my lawn",
     "description": "My mower broke, so I need someone to come over and help mow my lawn.",
     "currentFunding": 20.00,
-    "watchingUsers": ["UserOne","UserTwo"]
+    "watchingUsers": ["UserOne","UserTwo"],
+    "fundingUsers": [
+      {
+        "username": "MysteriousBenefactor",
+        "funding": 20
+      }
+    ]
   },
   {
     "taskAuthor": "UserTwo",
@@ -21,13 +37,33 @@
     "taskName": "5th Avenue Pothole",
     "description": "There's a pothole on 5th avenue that needs to be filled.",
     "currentFunding": 245.60,
-    "watchingUsers": ["UserOne","UserThree","UserTwo","UserFour"]
+    "watchingUsers": ["UserOne","UserThree","UserTwo","UserFour"],
+    "fundingUsers": [
+      {
+        "username": "UserOne",
+        "funding": 50
+      },
+      {
+        "username": "MysteriousBenefactor",
+        "funding": 195.60
+      }
+    ]
   },
   {
     "taskAuthor": "UserThree",
     "taskName": "Fix the Johnson's fence",
     "description": "The Johnsons' pig fence is broken. Those hogs are running wild!",
     "currentFunding": 15.00,
-    "watchingUsers": ["UserThree"]
+    "watchingUsers": ["UserThree"],
+    "fundingUsers": [
+      {
+        "username": "UserOne",
+        "funding": 10
+      },
+      {
+        "username": "MysteriousBenefactor",
+        "funding": 5
+      }
+    ]
   }
 ]
