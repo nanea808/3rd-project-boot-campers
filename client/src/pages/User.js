@@ -1,4 +1,5 @@
 import React from "react";
+import User from "../../../server/models/User";
 
 function User () {
     return (
@@ -11,18 +12,33 @@ function User () {
                 <img src="" alt="avatar" placeholder="user-avatar"></img>
             </div>
             <div>
-                <p>Username</p>
-                <p>Email</p>
+                <p>key={user.username}</p>
+                <p>key={user.email}</p>
             </div>
             <div>
                 <h1>About Me</h1>
-                <p>insert bio here</p>
+                <p>key={user.description}</p>
+            </div>
+            <div>
+                <h2>My Tasks</h2>
+                <div>
+                    key={createdTasks}
+                </div>
+            </div>
+            <div>
+                <h2>Assigned Tasks</h2>
+                <div>
+                    key={user.assignedTasks}
+                </div>
+            </div>
+            <div>
+                <h2>Watched Tasks</h2>
+                    <div>
+                        key={user.watchedTasks}
+                    </div>
             </div>
             <div id="skills-container">
-                <p className="skill-floater"></p>
-                <p className="skill-floater"></p>
-                <p className="skill-floater"></p>
-                <p className="skill-floater"></p>
+                key={user.skills}
             </div>
         </main>
     );
