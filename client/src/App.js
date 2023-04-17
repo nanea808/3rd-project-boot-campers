@@ -53,6 +53,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/user" element={<User />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="/tasks" element={<UserTasksPage/>}></Route>
           </Routes>
           <Footer />
         </AccountProvider>
