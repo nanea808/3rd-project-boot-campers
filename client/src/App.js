@@ -21,6 +21,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import User from "./pages/User";
 import LoginPage from "./pages/LoginPage";
+import UserTasksPage from "./pages/UserTasksPage";
 
 const httpLink = new HttpLink({ uri: "http://localhost:3001/graphql" });
 

@@ -6,6 +6,7 @@ function Navbar() {
   // const toggleMobileNav = () => setIsMobileNavOpen(!isMobileNavOpen);
 
   const links = [
+    { href: "/", label: "Home"},
     { href: "/tasks", label: "Tasks" },
     { href: "/donate", label: "Donate" },
     { href: "/login", label: "Login" },

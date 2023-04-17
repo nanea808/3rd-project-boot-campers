@@ -33,5 +33,14 @@
     "password": "pass0004",
     "description": "I'm user four. I'm a certified contractor.",
     "skills": ["Construction", "roadwork experience"]
+  },
+  {
+    "firstName": "Mysterious",
+    "lastName": "Benefactor",
+    "username": "MysteriousBenefactor",
+    "email": "mysterious-benefactor@gmail.com",
+    "password": "pass0005",
+    "description": "I have bucketfulls of money.",
+    "skills": ["Basically batman"]
   }
 ]

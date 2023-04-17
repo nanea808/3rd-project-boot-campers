@@ -30,6 +30,26 @@ export const QUERY_WATCHED_TASKS = gql`
   }
 `;
 
+export const QUERY_FUNDED_TASKS = gql`
+  query user($userId: ID!) {
+    user(userId: $userId) {
+      username
+      fundedTasks {
+        _id
+        assignedUser
+        taskAuthor
+        taskName
+        description
+        currentFunding
+        fundingUsers {
+          username
+          funding
+        }
+      }
+    }
+  }
+`;
+
 export const QUERY_TASKS = gql`
   query tasks {
     tasks {
@@ -39,6 +59,22 @@ export const QUERY_TASKS = gql`
       taskName
       description
       currentFunding
+    }
+  }
+`;
+
+export const QUERY_SINGLE_USER = gql`
+  query singleUser($userId: ID!) {
+    user(userId: $userId) {
+      _id
+      username
+      email
+      description
+      skills
+      createdTasks
+      assignedTasks
+      watchedTasks
+      fundedTasks
     }
   }
 `;
