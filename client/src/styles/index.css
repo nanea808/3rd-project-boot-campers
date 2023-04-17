@@ -50,7 +50,6 @@ code {
 }
 
 .nav-button {
-  font-size: 200%;
   padding: 0.5rem;
   background-color: var(--deep-sea-blue);
   color: var(--dandelion-yellow);
@@ -60,6 +59,20 @@ code {
   transition: box-shadow 200ms ease-in-out;
   font-size: 3rem;
   font-weight: 900;
+}
+
+.logout-button {
+  padding: 0.5rem;
+  background-color: var(--deep-sea-blue);
+  color: var(--dandelion-yellow);
+  padding: 1rem 0.5rem;
+  font-size: 2rem ;
+  font-weight: 700;
+  border: 0;
+}
+
+.logout-button:hover {
+  color: var(--off-white);
 }
 
 .nav-button:hover {
