@@ -42,3 +42,18 @@ export const QUERY_TASKS = gql`
     }
   }
 `;
+
+export const QUERY_SINGLE_USER = gql`
+  query singleUser($userId: ID!) {
+    user(userId: $userId) {
+      _id
+      username
+      email
+      description
+      skills
+      createdTasks
+      assignedTasks
+      watchedTasks
+    }
+  }
+`;

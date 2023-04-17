@@ -1,6 +1,21 @@
 import React from "react";
+// import User from "../../../server/models/User";
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
+import { QUERY_SINGLE_USER } from "../api/queries";
 
 function User () {
+    const { userId } = useParams();
+    const { loading, data } = useQuery(QUERY_SINGLE_USER, { 
+        variables: { userId: userId },
+    });
+
+    const user = data?.user || {};
+
+    if (loading) {
+        return <div>Now Loading</div>;
+    }
+
     return (
         <main>
             <div> 
@@ -11,18 +26,33 @@ function User () {
                 <img src="" alt="avatar" placeholder="user-avatar"></img>
             </div>
             <div>
-                <p>Username</p>
-                <p>Email</p>
+                <p>{user.username}</p>
+                <p>{user.email}</p>
             </div>
             <div>
                 <h1>About Me</h1>
-                <p>insert bio here</p>
+                <p>{user.description}</p>
+            </div>
+            <div>
+                <h2>My Tasks</h2>
+                <div>
+                    {user.createdTasks}
+                </div>
+            </div>
+            <div>
+                <h2>Assigned Tasks</h2>
+                <div>
+                    {user.assignedTasks}
+                </div>
+            </div>
+            <div>
+                <h2>Watched Tasks</h2>
+                    <div>
+                        {user.watchedTasks}
+                    </div>
             </div>
             <div id="skills-container">
-                <p className="skill-floater"></p>
-                <p className="skill-floater"></p>
-                <p className="skill-floater"></p>
-                <p className="skill-floater"></p>
+                {user.skills}
             </div>
         </main>
     );
