@@ -26,17 +26,17 @@ export const ADD_TASK = gql`
     }
 `;
 
-// //user signup mutation
-// export const ADD_USER = gql`
-//     mutation addUser($name: String!, $username: String!, $email: String!, $password: String!) {
-//         addUser(username: name: $name, $username, email: $email, password: $password) {
-//             name
-//             username
-//             email
-//             password
-//         }
-//     }
-// `;
+//user signup mutation
+export const ADD_USER = gql`
+    mutation addUser($name: String!, $username: String!, $email: String!, $password: String!) {
+        addUser(username: name: $name, $username, email: $email, password: $password) {
+            name
+            username
+            email
+            password
+        }
+    }
+`;
 
 // //user add skill mutation
 // export const ADD_SKILL = gql`
