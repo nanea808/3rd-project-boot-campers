@@ -10,10 +10,13 @@ import { QUERY_WATCHED_TASKS } from "../api/queries";
 import { QUERY_FUNDED_TASKS } from "../api/queries";
 import FundedTasks from "../components/FundedTasks";
 
+import { useAccountContext } from '../context/GlobalState';
+
 function UserTasksPage () {
     // temporarily using UserOnes ID and username
-    const userId = "643ccd8f784b03a9752b30d4";
-    const username = "UserOne";
+    const [state] = useAccountContext();
+    const userId = "643de28b2529e23db0e886e6";
+    const username = "UserTwo";
 
 
     const watchedQuery = useQuery(QUERY_WATCHED_TASKS, {
