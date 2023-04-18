@@ -29,7 +29,7 @@ import UserTasksPage from "./pages/UserTasksPage";
 //auth
 import Auth from './auth';
 
-const httpLink = new HttpLink({ uri: "http://localhost:44066/graphql" });
+const httpLink = new HttpLink({ uri: "/graphql" });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   // add the authorization to the headers
