@@ -20,10 +20,10 @@ const schema = Yup.object().shape({
     //     .required('Please include where the task will take place')
     //     .min(15, 'Must be at least 15 characters')
     //     .max(100, 'Cannot exceed 100 characters'),
-    currentFunding: Yup.number()
-        .required('Please include how much you are willing to pay for the task.')
-        .min(0.0)
-        .max(100.00) //do we want to set a max?
+    // currentFunding: Yup.number()
+    //     .required('Please include how much you are willing to pay for the task.')
+    //     .min(0.0)
+    //     .max(100.00) //do we want to set a max?
 });
 
 const AddTaskForm = () => {
@@ -50,7 +50,7 @@ const AddTaskForm = () => {
         <div className="form-container">
             <Formik
                 validationSchema={schema}
-                initialValues={{ title: '', description: '', currentFunding: '' }}
+                initialValues={{ title: '', description: '' }}
                 // onSubmit={(values) => {
                 //     //replace with desired fxnality
                 //     console.log('New task passed validation. ' + values);
@@ -60,7 +60,7 @@ const AddTaskForm = () => {
                         variables: {
                             taskName: values.taskName,
                             description: values.description,
-                            currentFunding: values.currentFunding
+                            // currentFunding: values.currentFunding
                         }
                     });
                     resetForm();
@@ -134,7 +134,7 @@ const AddTaskForm = () => {
                                         <p className="error">{errors.location}</p>
                                     )}
                                 </div> */}
-                                <div className='input-group'>
+                                {/* <div className='input-group'>
                                     <label htmlFor='currentFunding' className='label'>
                                         Fund Task
                                     </label>
@@ -151,7 +151,7 @@ const AddTaskForm = () => {
                                     {errors.currentFunding && touched.currentFunding && (
                                         <p className="error">{errors.currentFunding}</p>
                                     )}
-                                </div>
+                                </div> */}
                                 <div>
                                     <button type="submit" className="button">
                                         Submit
