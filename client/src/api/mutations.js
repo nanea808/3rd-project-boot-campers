@@ -16,13 +16,11 @@ export const LOGIN_USER = gql`
 //user create task
 //need to make taskAuthor = logged-in user id ... replace $userId with $taskAuthor?
 export const ADD_TASK = gql`
-    mutation addTask($userId: ID!, $taskAuthor: String! $taskName: String!, $description: String!, $currentFunding: Number!) {
-      addTask(userId: $userId, taskAuthor: $userId, taskName: $taskName, description: $description, currentFunding: $currentFunding)
+    mutation addTask($taskName: String!, $description: String!) {
+      addTask(taskName: $taskName, description: $description)
         _id
         taskName
-        taskAuthor
         description
-        currentFunding
     }
 `;
 
