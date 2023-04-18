@@ -15,8 +15,8 @@ import { useAccountContext } from '../context/GlobalState';
 function UserTasksPage () {
     // temporarily using UserOnes ID and username
     const [state] = useAccountContext();
-    const userId = "643de28b2529e23db0e886e6";
-    const username = "UserTwo";
+    const userId = state.userID;
+    const username = "UserOne";
 
 
     const watchedQuery = useQuery(QUERY_WATCHED_TASKS, {
