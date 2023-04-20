@@ -17,6 +17,7 @@
   "dependencies": {
     "concurrently": "^8.0.1",
     "create-react-app": "^5.0.1",
+    "dotenv": "^16.0.3",
     "yup": "^1.1.0"
   }
 }
