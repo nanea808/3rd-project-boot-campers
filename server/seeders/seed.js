@@ -1,5 +1,5 @@
+require('dotenv').config();
 const db = require("../config/connection");
-
 const { User, Task } = require("../models");
 
 const userSeeds = require('./userSeeds.json');
