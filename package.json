@@ -6,10 +6,11 @@
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
+    "install-all": "npm i && cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "seed": "cd server && npm run seed",
-    "heroku-postbuild": "npm run install && npm run build"
+    "watch": "cd server && npm run watch",
+    "heroku-postbuild": "npm run install-all && npm run build"
   },
   "keywords": [],
   "author": "",
