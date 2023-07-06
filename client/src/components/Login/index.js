@@ -6,7 +6,10 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../api/mutations";
 import Auth from "../../auth";
 
-import { UPDATE_ACCOUNT_ID, UPDATE_ACCOUNT_STATUS } from "../../context/actions";
+import {
+  UPDATE_ACCOUNT_ID,
+  UPDATE_ACCOUNT_STATUS,
+} from "../../context/actions";
 import { useAccountContext } from "../../context/GlobalState";
 
 //yup validation schema
@@ -41,8 +44,8 @@ const LoginForm = () => {
       await dispatch({
         type: UPDATE_ACCOUNT_STATUS,
         isLoggedIn: state.isLoggedIn,
-      })
-      
+      });
+
       Auth.login(token, { userID, isLoggedIn });
     } catch (err) {
       console.error(err);
@@ -112,16 +115,12 @@ const LoginForm = () => {
                 <button type="submit" className="button">
                   Login
                 </button>
-                
-               
               </Form>
             </div>
           </div>
         )}
       </Formik>
-      {error && (
-        <div>{error.message}</div>
-      )}
+      {error && <div>{error.message}</div>}
     </div>
   );
 };
